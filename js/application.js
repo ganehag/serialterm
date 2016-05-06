@@ -95,6 +95,8 @@ Application.prototype.connect = function() {
 }
 
 Application.prototype.getSerialDevices = function() {
+    document.getElementById('port-picker').innerHTML = "";
+
     chrome.serial.getDevices(function(ports) {
         var eligiblePorts = ports;
 
