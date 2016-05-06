@@ -35,7 +35,11 @@ body {
     border-top: 1px solid #CCC;
     border-left: 1px solid #CCC;
     border-right: 1px solid #CCC;
-    // -webkit-app-region: drag;
+    -webkit-app-region: drag;
+}
+
+.navbar a, .navbar button {
+    -webkit-app-region: no-drag;
 }
 
 .navbar .btn {
