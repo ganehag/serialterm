@@ -2,7 +2,7 @@
   "minimum_chrome_version": "33",
   "manifest_version": 2,
   "name": "Serial Term",
-  "version": "0.8.2",
+  "version": "0.8.3",
   "icons": {
     "128": "images/serialterm-128.png",
     "48": "images/serialterm-48.png",
