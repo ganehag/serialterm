@@ -1,5 +1,5 @@
 function Background() {
-  this.windows_ = [];
+  
 }
 
 Background.prototype.ifShowFrame_ = function() {
@@ -18,51 +18,21 @@ Background.prototype.ifShowFrame_ = function() {
 };
 
 Background.prototype.launch = function(launchData) {
-  /*
-  var entries = [];
-  chrome.storage.local.get('retainedEntryIds', function(data) {
-    var retainedEntryIds = data['retainedEntryIds'] || [];
-    for (var i = 0; i < retainedEntryIds.length; i++) {
-      chrome.fileSystem.restoreEntry(retainedEntryIds[i], function(entry) {
-        this.entriesToOpen_.push(entry);
-      }.bind(this));
-    }
-  }.bind(this));
-
-  if (launchData && launchData['items']) {
-    for (var i = 0; i < launchData['items'].length; i++) {
-      entries.push(launchData['items'][i]['entry']);
-    }
-  }
-  */
-  if (this.windows_.length == 0)
-    this.newWindow();
-
-  /*
-  for (var i = 0; i < entries.length; i++) {
-    chrome.fileSystem.getWritableEntry(
-        entries[i],
-        function(entry) {
-          if (this.windows_.length > 0) {
-            this.windows_[0].openEntries([entry]);
-          } else {
-            this.entriesToOpen_.push(entry);
-          }
-        }.bind(this));
-  }
-  */
+  this.newWindow();
 };
 
 
 Background.prototype.newWindow = function() {
-  var appWindowId = 'appWindow' + this.windows_.length;
+  var appWindowId = 'appWindow';
   var options = {
     id: appWindowId,
     frame: (this.ifShowFrame_() ? 'chrome' : 'none'),
-    minWidth: 400,
-    minHeight: 400,
-    width: 700,
-    height: 700
+    innerBounds: { 
+      width: 770, 
+      height: 400, 
+      minWidth: 770,
+      minHeight: 400
+    }
   };
 
   chrome.app.window.create('index.html', options, function(win) {
@@ -71,40 +41,9 @@ Background.prototype.newWindow = function() {
   }.bind(this));
 };
 
-/*
-
-chrome.app.runtime.onLaunched.addListener(function() {
-  new BeagleWindow();
-});
-
-var BeagleWindow = function() {
-  var connectedSerialId = 0;
-  chrome.app.window.create(
-    'term.html',
-    {
-      outerBounds: {
-        width: 1024,
-        height: 768
-      }
-    },
-    function(win) {
-      win.contentWindow.AddConnectedSerialId = function(id) {
-        connectedSerialId = id;
-      };
-      win.onClosed.addListener(function() {
-        chrome.serial.disconnect(connectedSerialId, function () {
-        });
-      });
-    }
-  );
-}
-
-*/
-
 
 var background = new Background();
 chrome.app.runtime.onLaunched.addListener(background.launch.bind(background));
-
 
 /* Exports */
 window['background'] = background;
