@@ -1,0 +1,26 @@
+{
+  "minimum_chrome_version": "33",
+  "manifest_version": 2,
+  "name": "Serial Term",
+  "version": "0.8",
+  "icons": {
+    "128": "images/serialterm-128.png",
+    "48": "images/serialterm-48.png",
+    "32": "images/serialterm-32.png",
+    "16": "images/serialterm-16.png"
+  },
+  "description": "Serial Term is a basic VT100 complaint serial terminal emulator.",
+  "offline_enabled": true,
+  "permissions": [
+    "serial",
+    "storage",
+    "fileSystem"
+  ],
+  "app": {
+    "background": {
+      "scripts": [
+        "js/background.js"
+      ]
+    }
+  }
+}

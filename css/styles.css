@@ -1,0 +1,74 @@
+html {
+    border: 1px solid #CCC;
+    background-color: #FFF;
+    height: 100%;
+    padding: 2px;
+}
+
+body {
+    height: 100%;
+}
+
+#window-close {
+    background-image: url('../images/close.svg');
+}
+
+#window-maximize {
+    background-image: url('../images/maximize.svg');
+}
+
+#window-minimize {
+    background-image: url('../images/minimize.svg');
+}
+
+#app-menu {
+    background-image: url('../images/menu.svg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-color: #EEE;
+    border-color: transparent;
+    opacity: 0.4;
+    margin-left: 0;
+}
+
+.navbar {
+    border-top: 1px solid #CCC;
+    border-left: 1px solid #CCC;
+    border-right: 1px solid #CCC;
+    // -webkit-app-region: drag;
+}
+
+.navbar .btn {
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-color: #EEE;
+    border-color: transparent;
+    opacity: 0.4;
+}
+
+.navbar .btn:focus, .navbar .btn:hover {
+    border-color: transparent;
+}
+
+#app-sidemenu {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    z-index: 1000;
+    display: none;
+    padding-top: 60px;
+    padding-bottom: 4px;
+} 
+#app-sidemenu .content {
+    background-color: #FFF;
+    height: 100%;
+    overflow-y: auto;
+}
+
+#app-sidemenu.active {
+    display: block;
+}
+
+#app-connect {
+    color: #333;
+}
